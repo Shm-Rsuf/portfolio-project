@@ -16,8 +16,8 @@ const projects = [
       "Spectra Bank is an online bank that helps you save with the power of technology! With our application, you can easily deposit checks, transfer money, and send and receive payments. All without any hassle. What's more: we've made sure the experience of using Spectra Bank is as seamless as possible. With a modern UI and UX, it's not hard to see why many people are switching their banking to Spectra Bank!",
     image: "https://pbs.twimg.com/media/FeSw4W6VIAEDuOg?format=jpg&name=large",
     tools: "html, css, js, parcel",
-    liveLink: "https://spectra-bank.netlify.app",
-    githubLink: "https://github.com/shohan-pherones/spectra-bank",
+    liveLink: "https://cool-blancmange-611ce5.netlify.app/",
+    githubLink: "https://github.com/Shm-Rsuf/bank-application-project",
   },
   {
     title: "Tera Guard - An anti-virus website",
@@ -25,8 +25,8 @@ const projects = [
       "A mix of pure simplicity and functional elegance, Tera Guard is a web-based security solution that provides protection against internet threats, malware and cyber-attacks. With our robust system, you can be confident that your data and network are safe from hackers and malicious intent. Enjoy the peace of mind knowing your business is protected with our 24/7 customer support team.",
     image: "https://pbs.twimg.com/media/FeSw8ekVEAEK797?format=jpg&name=large",
     tools: "html, css, js, parcel",
-    liveLink: "https://tera-guard.netlify.app",
-    githubLink: "https://github.com/shohan-pherones/tera-guard",
+    liveLink: "https://superlative-souffle-6b8e00.netlify.app/",
+    githubLink: "https://github.com/Shm-Rsuf/tera-gurad-project",
   },
   {
     title: "Map - Pro: A workout mapping application",
@@ -55,7 +55,7 @@ class App {
     const navHeight = nav.getBoundingClientRect().height;
 
     const navObs = new IntersectionObserver(this._stickOperation, {
-      root: null,//viewport
+      root: null, //viewport
       threshold: 0,
       rootMargin: `-${navHeight}px`,
     });
@@ -65,51 +65,76 @@ class App {
 
   _stickOperation(entries) {
     let entry = entries[0];
-    if (!entry.isIntersecting) header.classList.add('sticky');
-    else header.classList.remove('sticky');
+    if (!entry.isIntersecting) header.classList.add("sticky");
+    else header.classList.remove("sticky");
   }
 
   /*--------------Actives Links--------------*/
   _activeLinks() {
     links.forEach((link) => {
-      link.addEventListener('click', (e) => {
+      link.addEventListener("click", (e) => {
         const link = e.target;
-        const siblings = link.closest('.links').querySelectorAll('.link');
+        const siblings = link.closest(".links").querySelectorAll(".link");
 
         siblings.forEach((sibling) => {
-          if (sibling === link) sibling.style.color = 'rgb(20, 184, 166)';
-          else sibling.style.color = 'rgb(209, 213, 219)';
-        })
-      })
-    })
+          if (sibling === link) sibling.style.color = "rgb(20, 184, 166)";
+          else sibling.style.color = "rgb(209, 213, 219)";
+        });
+      });
+    });
   }
 
   /*--------------Toggle Mobile Navbar----------------*/
   _toggleMobileNav() {
-    toggleBtn.addEventListener('click', () => {
-      toggleBtn.classList.contains('toggle-close') ? this._disappearMobileNav() : this._appearMobileNav();
-    })
+    toggleBtn.addEventListener("click", () => {
+      toggleBtn.classList.contains("toggle-close")
+        ? this._disappearMobileNav()
+        : this._appearMobileNav();
+    });
   }
 
   _disappearMobileNav() {
-    toggleBtn.classList.remove('toggle-close');
-    linksContainer.style.animation = 'mobileNavDisappear 0.55s 1';
+    toggleBtn.classList.remove("toggle-close");
+    linksContainer.style.animation = "mobileNavDisappear 0.55s 1";
     setTimeout(() => {
-      linksContainer.classList.remove('links-open');
+      linksContainer.classList.remove("links-open");
     }, 500);
-    document.querySelector('html').style.overflow = 'visible';
-  };
+    document.querySelector("html").style.overflow = "visible";
+  }
 
   _appearMobileNav() {
-    toggleBtn.classList.add('toggle-close');
-    linksContainer.classList.add('links-open');
-    linksContainer.style.animation = 'mobileNavAppear 0.5s 1';
-    document.querySelector('html').style.overflow = 'hidden';
-  };
+    toggleBtn.classList.add("toggle-close");
+    linksContainer.classList.add("links-open");
+    linksContainer.style.animation = "mobileNavAppear 0.5s 1";
+    document.querySelector("html").style.overflow = "hidden";
+  }
 
   /*------------Tag Cloud--------------*/
   _tagCloud() {
-    const tags = ['HTML', 'CSS', 'Bootstrap', 'Tailwind-CSS', 'JavaScript', 'React', 'Redux', 'Node-js', 'Express-js', 'MongoDB', 'Postman', 'Git', 'Github', 'Type-script', 'Angular-js', 'Netlyfy', 'Ajax', 'JAVA', 'Vue-js', 'React router', 'Dom manipulation', 'MySql'];
+    const tags = [
+      "HTML",
+      "CSS",
+      "Bootstrap",
+      "Tailwind-CSS",
+      "JavaScript",
+      "React",
+      "Redux",
+      "Node-js",
+      "Express-js",
+      "MongoDB",
+      "Postman",
+      "Git",
+      "Github",
+      "Type-script",
+      "Angular-js",
+      "Netlyfy",
+      "Ajax",
+      "JAVA",
+      "Vue-js",
+      "React router",
+      "Dom manipulation",
+      "MySql",
+    ];
 
     TagCloud(".content", tags, {
       radius: 350,
@@ -128,10 +153,10 @@ class App {
     });
 
     typewriter
-      .typeString('Web developer')
+      .typeString("Web developer")
       .pauseFor(2000)
       .deleteChars(7)
-      .typeString('signer')
+      .typeString("signer")
       .pauseFor(2000)
       .start();
   }
@@ -168,8 +193,8 @@ class App {
         </div>
       </div>
   `;
-      projectsContainer.insertAdjacentHTML('afterbegin', html);
-    })
+      projectsContainer.insertAdjacentHTML("afterbegin", html);
+    });
   }
 }
 
